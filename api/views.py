@@ -42,3 +42,8 @@ def sms(request):
 @api_view("POST")
 def goods(request):
     pass
+
+
+@api_view("POST")
+def test(request):
+    pass
