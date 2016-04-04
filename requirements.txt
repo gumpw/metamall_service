@@ -5,3 +5,4 @@ django-braces
 django-extra-views
 django-floppyforms
 djangorestframework
+gunicorn==19.3.0
