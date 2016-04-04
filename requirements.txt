@@ -10,3 +10,5 @@ django-simple-history
 django-grappelli
 FeedParser
 gunicorn==19.3.0
+markdown
+django-filter

@@ -16,32 +16,32 @@ from service.json_util import parseRequest
 from service.sms_service import send_sms
 
 
-@api_view("POST")
+@api_view(["POST"])
 def login(request):
     pass
 
 
-@api_view("POST")
+@api_view(["POST"])
 def register(request):
     pass
 
 
-@api_view("POST")
+@api_view(["POST"])
 def province(request):
     pass
 
 
-@api_view("POST")
+@api_view(["POST"])
 def city(request):
     pass
 
 
-@api_view("POST")
+@api_view(["POST"])
 def area(request):
     pass
 
 
-@api_view("POST")
+@api_view(["POST"])
 def sms(request):
     """
     短信发送接口
@@ -90,12 +90,12 @@ def sms(request):
     return Response({"code": "S", "msg": "短信发送成功"}, status.HTTP_200_OK)
 
 
-@api_view("POST")
+@api_view(["POST"])
 def goods(request):
     pass
 
 
-@api_view("GET")
+@api_view(["GET"])
 def test(request):
     return Response({"code": "S", "msg": "test"}, status.HTTP_200_OK)
 
