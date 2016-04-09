@@ -50,8 +50,7 @@ def sms(request):
     request_serializer: SmsRequestSerializer
     """
     try:
-        jsonData = parseRequest(request.data)
-        smsRequest = SmsRequestSerializer(data=jsonData)
+        smsRequest = SmsRequestSerializer(data=request.data)
         smsRequest.is_valid()
         mobileNo = smsRequest.data['phoneNo']
         type = smsRequest.data['type']
