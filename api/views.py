@@ -11,8 +11,9 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from api.models import SmsType, SmsRecord, SmsTemplate, Config
-from api.serializers import ConfigSerializer, SmsRequestSerializer, SmsTemplateSerializer
+from api.models import SmsType, SmsRecord, SmsTemplate, Config, Province, City, Area
+from api.serializers import ConfigSerializer, SmsRequestSerializer, SmsTemplateSerializer, ProvinceSerializer, \
+    CitySerializer, QuerySerializer, AreaSerializer
 from service.json_util import parseRequest
 from service.sms_service import send_sms
 
@@ -27,19 +28,33 @@ def register(request):
     pass
 
 
-@api_view(["POST"])
+@api_view(["GET", "POST"])
 def province(request):
-    pass
+    province_list = ProvinceSerializer(Province.objects.all(), many=True)
+    return Response(province_list.data, status.HTTP_200_OK)
 
 
-@api_view(["POST"])
+@api_view(["GET", "POST"])
 def city(request):
-    pass
+    try:
+        # print(type(request.data))
+        # json_query = json.load(request.data.get('_content'))
+        provinceId = request.GET.get("provinceId")
+        city = CitySerializer(request.data)
+        city_list = CitySerializer(City.objects.filter(provinceId=provinceId), many=True)
+        return Response(city_list.data, status.HTTP_200_OK)
+    except Exception as e:
+        return Response({}, status.HTTP_404_NOT_FOUND)
 
 
-@api_view(["POST"])
+@api_view(["GET", "POST"])
 def area(request):
-    pass
+    try:
+        cityId = request.GET.get("cityId")
+        area_list = AreaSerializer(Area.objects.filter(cityId=cityId), many=True)
+        return Response(area_list.data, status.HTTP_200_OK)
+    except:
+        return Response({}, status.HTTP_404_NOT_FOUND)
 
 
 @api_view(["POST"])

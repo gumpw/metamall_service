@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from api.models import Config, SmsTemplate
+from api.models import Config, SmsTemplate, Province, City, Area
 
 
 class ConfigSerializer(serializers.Serializer):
@@ -20,6 +20,73 @@ class ConfigSerializer(serializers.Serializer):
         instance.save()
         return instance
 
+class ProvinceSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    name = serializers.CharField(max_length=32)
+    alias = serializers.CharField(max_length=32)
+
+    def create(self, validate_data):
+        return Province.objects.create(**validate_data)
+
+    def update(self, instance, validate_data):
+        instance.id = validate_data.get('id', instance.id)
+        instance.name = validate_data.get('name', instance.name)
+        instance.alias = validate_data.get('alias', instance.alias)
+        instance.save()
+        return instance
+
+
+class CitySerializer(serializers.Serializer):
+    id = serializers.IntegerField(allow_null=True)
+    provinceId = serializers.IntegerField()
+    name = serializers.CharField(max_length=32,allow_null=True)
+    alias = serializers.CharField(max_length=32, allow_null=True)
+
+    def create(self, validate_data):
+        return City.objects.create(**validate_data)
+
+    def update(self, instance, validate_data):
+        instance.id = validate_data.get('id', instance.id)
+        instance.provinceId = validate_data.get('provinceId', instance.provinceId)
+        instance.name = validate_data.get('name', instance.name)
+        instance.alias = validate_data.get('alias', instance.alias)
+        instance.save()
+        return instance
+
+
+class QuerySerializer(serializers.Serializer):
+    q_id = serializers.IntegerField()
+
+    def create(self, validated_data):
+        return City.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        instance.q_id = validated_data.get('q_id', instance.q_id)
+        instance.save()
+        return instance
+
+
+
+
+
+class AreaSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    cityId = serializers.IntegerField()
+    provinceId = serializers.IntegerField()
+    name = serializers.CharField(max_length=32)
+    alias = serializers.CharField(max_length=32)
+
+    def create(self, validate_data):
+        return Area.objects.create(**validate_data)
+
+    def update(self, instance, validate_data):
+        instance.id = validate_data.get('id', instance.id)
+        instance.cityId = validate_data.get('cityId', instance.cityId)
+        instance.provinceId = validate_data.get('provinceId', instance.provinceId)
+        instance.name = validate_data.get('name', instance.name)
+        instance.alias = validate_data.get('alias', instance.alias)
+        instance.save()
+        return instance
 
 class SmsRequestSerializer(serializers.Serializer):
     def create(self, validated_data):

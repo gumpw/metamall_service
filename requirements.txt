@@ -13,3 +13,18 @@ gunicorn==19.3.0
 markdown
 django-filter
 requests
+#work flow
+django-activity-stream
+#guardian
+django-guardian
+django-waffle
+django-classy-tags
+django-subdomains
+django-merchant
+#A minimal Django app that implements Device models that can send messages through APNS and GCM.
+#App Notification.
+django-push-notifications
+#Monitor
+django-dashing
+#Debug
+django-debug-toolbar
