@@ -100,6 +100,17 @@ class SmsRequestSerializer(serializers.Serializer):
                                             ("withdraw", "提现"), ("recover", "找回密码")))
 
 
+class CitySerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = City
+        fields = ('provinceId')
+
+class AreaSerializer(serializers.HyperlinkedModelSerializer):
+    class meta:
+        model = Area
+        fields = ('cityId')
+
+
 class SmsResponseSerializer(serializers.Serializer):
     code = serializers.CharField()
     msg = serializers.CharField()

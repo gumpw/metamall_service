@@ -36,11 +36,16 @@ def province(request):
 
 @api_view(["GET", "POST"])
 def city(request):
+    """
+    城市获取接口
+    ---
+    request_serializer: CitySerializer
+    """
     try:
         # print(type(request.data))
         # json_query = json.load(request.data.get('_content'))
-        provinceId = request.GET.get("provinceId")
-        city = CitySerializer(request.data)
+        city = CitySerializer(data=request.data)
+        provinceId = city.data["provinceId"]
         city_list = CitySerializer(City.objects.filter(provinceId=provinceId), many=True)
         return Response(city_list.data, status.HTTP_200_OK)
     except Exception as e:
@@ -49,8 +54,14 @@ def city(request):
 
 @api_view(["GET", "POST"])
 def area(request):
+    """
+    地区获取接口
+    ---
+    request_serializer: AreaSerializer
+    """
     try:
-        cityId = request.GET.get("cityId")
+        area = AreaSerializer(data=request.data)
+        cityId = area.data["cityId"]
         area_list = AreaSerializer(Area.objects.filter(cityId=cityId), many=True)
         return Response(area_list.data, status.HTTP_200_OK)
     except:
