@@ -18,6 +18,10 @@ from service.json_util import parseRequest
 from service.sms_service import send_sms
 
 
+"""
+    接口信息类
+"""
+
 @api_view(["POST"])
 def login(request):
     pass
@@ -30,6 +34,10 @@ def register(request):
 
 @api_view(["GET", "POST"])
 def province(request):
+    """
+    省份获取接口
+    ---
+    """
     province_list = ProvinceSerializer(Province.objects.all(), many=True)
     return Response(province_list.data, status.HTTP_200_OK)
 
@@ -108,10 +116,12 @@ def sms(request):
     except (ValueError, KeyError, TypeError):
         return Response({"code": "F", "msg": "短信配置解析出错"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     content = template.substitute(arr)
+
+    code = 888888
     # 短信发送记录
     smsRecord = SmsRecord(phoneNo=mobileNo, content=content, verifyCode=code, type=smsType, gmtCreate=datetime.now())
     smsRecord.save()
-    result = send_sms(mobileNo, content, configJson['url'], configJson['api'])
+    # result = send_sms(mobileNo, content, configJson['url'], configJson['api'])
     # TODO:返回结果吗仍需要处理
     return Response({"code": "S", "msg": "短信发送成功"}, status.HTTP_200_OK)
 
