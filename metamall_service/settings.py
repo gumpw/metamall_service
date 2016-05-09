@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'metamall_service.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'wHBlUpCtem3OG5N8',
-        'USER': 'ugZahRrAlVqw1x0f',
-        'PASSWORD': 'pJfTFqsrVcb4l2GQC',
+        'NAME': 'MUa3xiNkS5uJRzyV',
+        'USER': 'uNbKirtq9G68n451',
+        'PASSWORD': 'p1wmYLSrtJnBcOqPv',
         'HOST': '10.10.26.58',
         'PORT': '3306',
     }
