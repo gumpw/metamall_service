@@ -1,0 +1,39 @@
+<?php if(isset($pagination) && $pagination!=null):?>
+<div class="row">
+    <div class="col-lg-6 align-lg-left align-xs-center">
+        <div class="dataTables_info" id="toggle-column_info">共<?=$pagination['totalPage'];?>页/每页<?=$pagination['pageSize'];?>笔</div>
+    </div>
+    <div class="col-lg-6  align-lg-right align-xs-center ">
+        <div class="dataTables_paginate paging_bs_normal">
+            <ul class="pagination">
+                <li class="prev disabled"><a href="javascript:void(0)" class="pageBtn" data-src="<?=$pagination['currentPage']-1;?>"><span
+                            class="glyphicon glyphicon-chevron-left"></span></a></li>
+                <?php if($pagination['totalPage']<10):?>
+                <?php for($now=1;$now<=$pagination['totalPage'];$now++):?>
+                <li <?php if($now==$pagination['currentPage']):?>class="active"<?php endif;?>><a href="javascript:void(0)"  class="pageBtn" data-src="<?=$now;?>"><?=$now;?></a></li>
+                <?php endfor?>
+                <?php else:?>
+                <li <?php if($pagination['currentPage']==1):?>class="active"<?php endif;?>><a href="javascript:void(0)"  class="pageBtn" data-src="1">1</a></li>
+                    <?php for($now=$pagination['currentPage']-3;$now<=$pagination['currentPage']+5;$now++):?>
+                        <?php if($now>1 and $now<$pagination['totalPage']):?>
+                            <li <?php if($now==$pagination['currentPage']):?>class="active"<?php endif;?>><a href="javascript:void(0)"  class="pageBtn" data-src="<?=$now;?>"><?=$now;?></a></li>
+                        <?php endif;?>
+                    <?php endfor?>
+                    <li><a>...</a></li>
+                <li <?php if($pagination['currentPage']==$pagination['totalPage']):?>class="active"<?php endif;?>><a href="javascript:void(0)"  class="pageBtn" data-src="<?=$pagination['totalPage'];?>"><?=$pagination['totalPage'];?></a></li>
+                <?php endif;?>
+                <li class="next"><a href="javascript:void(0);" class="pageBtn" data-src="<?=$pagination['currentPage']-1;?>"><span
+                            class="glyphicon glyphicon-chevron-right"></span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript" src="<?=RESOURCE_PATH;?>back/js/jquery.min.js"></script>
+<script type="text/javascript">
+$("ul.pagination .pageBtn").click(function(){
+    $("#currentPage").val($(this).attr("data-src"));
+    $("#queryForm").submit();
+});
+</script>
+<?php endif;?>

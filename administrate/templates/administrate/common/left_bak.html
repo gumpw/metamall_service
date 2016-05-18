@@ -1,0 +1,111 @@
+<!--
+    //////////////////////////////////////////////////////////////
+    //////////     LEFT NAV MENU     //////////
+    ///////////////////////////////////////////////////////////
+    -->
+<!--<nav id="menu" data-search="close">-->
+<nav id="menu">
+    <ul>
+<!--        <li><span><i class="icon  fa fa-laptop"></i> 统计数据展示</span>-->
+<!--            <ul>-->
+<!--                <li><a href="--><?//=site_url("admin/statistics");?><!--"><i class="icon  fa fa-rocket"></i> 网站统计 </a></li>-->
+<!--                <li><a href="--><?//=site_url("admin/third-party");?><!--"><i class="icon  fa fa-th"></i> 第三方统计 </a></li>-->
+<!--            </ul>-->
+<!--        </li>-->
+<!--        <li><a href="front/index.html"><i class="icon  fa fa-rocket"></i> CMS </a></li>-->
+        <li><a href="<?=site_url("admin/index/settings");?>"><i class="icon  fa fa-inbox"></i> 网站设置</a></li>
+        <li><span><i class="icon  fa fa-th-list"></i> 内容管理</span>
+            <ul>
+<!--                <li class="Label label-lg">CMS</li>-->
+<!--                <li><a href="--><?//=site_url("cms/article");?><!--">咨询文章</a></li>-->
+<!--                <li><a href="--><?//=site_url("cms/single");?><!--">单页管理</a></li>-->
+<!--                <li><a href="--><?//=site_url("cms/users");?><!--">人员展示</a></li>-->
+<!--                <li><a href="--><?//=site_url("admin/cms/bottom");?><!--">底部设置</a></li>-->
+                <li><a href="<?=site_url("admin/cms/banner");?>">首页轮播图片</a></li>
+                <li><a href="<?=site_url("admin/cms/friendlink");?>">友情链接</a></li>
+                <li><a href="<?=site_url("admin/cms/nav");?>">导航栏</a></li>
+                <li><a href="<?=site_url("admin/cms/aboutUs");?>">关于我们</a></li>
+<!--                <li><a href="--><?//=site_url("admin/cms/friendLink");?><!--">友情链接</a></li>-->
+            </ul>
+        </li>
+        <li><span><i class="icon  fa fa-briefcase"></i>权限管理</span>
+            <ul>
+                <li><a href="<?=site_url("admin/privileges/menus");?>">菜单管理</a></li>
+                <li><a href="<?=site_url("admin/privileges");?>">权限管理</a></li>
+                <li><a href="<?=site_url("admin/privileges/roles");?>">角色管理</a></li>
+<!--                <li><a href="--><?//=site_url("admin/privileges/users");?><!--">员工角色分配</a></li>-->
+                <li><a href="<?=site_url("admin/privileges/mine");?>">我的权限</a></li>
+            </ul>
+        </li>
+        <li><span><i class="icon  fa fa-bar-chart-o"></i> 部门主页 </span>
+            <ul>
+                <li><a href="<?=site_url("admin/department");?>"> 部门首页</a></li>
+                <li><a href="<?=site_url("admin/department/achieve");?>">业绩展示</a></li>
+                <li><a href="<?=site_url("admin/department/achieveQuery");?>">业绩查询</a></li>
+<!--                <li><a href="--><?//=site_url("admin/department/myAchieve");?><!--">我的业绩</a></li>-->
+            </ul>
+        </li>
+<!--        <li><a href="calendar.html"><i class="icon  fa fa-calendar-o"></i> 员工管理 </a></li>-->
+        <li><span><i class="icon  fa fa-align-right"></i>员工管理</span>
+            <ul>
+                <li><a href="<?=site_url("admin/employee/accounts");?>"> 员工信息 </a></li>
+                <li><a href="<?=site_url("admin/employee/employeeAdd");?>"> 新增员工 </a></li>
+                <li><a href="<?=site_url("admin/employee/directory");?>"> 通讯录 </a></li>
+            </ul>
+        </li>
+        <li><span><i class="icon  fa fa-clipboard"></i> 名单</span>
+            <ul>
+                <li><a href="<?=site_url("admin/roster/user");?>">用户名单</a></li>
+                <li><a href="<?=site_url("admin/roster/callList");?>">电话记录</a></li>
+                <li><a href="<?=site_url("admin/roster/allot");?>">名单分配</a></li>
+                <li><a href="<?=site_url("admin/roster/mine");?>">我的名单</a></li>
+                <li><a href="<?=site_url("admin/roster/import");?>">名单导入</a></li>
+                <li><a href="<?=site_url("admin/roster/lecture");?>">讲座</a></li>
+                <li><a href="<?=site_url("admin/roster/toLectureAdd");?>">讲座发布</a></li>
+            </ul>
+        </li>
+<!--        <li><a href="fileManager.html"><i class="icon  fa fa-file-text"></i>  </a></li>-->
+        <li><span><i class="icon  fa fa-fire"></i> 课程管理</span>
+            <ul>
+                <li><a href="<?=site_url("admin/course");?>">课程管理</a></li>
+                <li><a href="<?=site_url("admin/course/video");?>">视频管理</a></li>
+                <li><a href="<?=site_url("admin/course/audition");?>">试听列表</a></li>
+                <li><a href="<?=site_url("admin/course/enroll");?>">课程报名</a></li>
+                <li><a href="<?=site_url("admin/course/enrollList");?>">报名列表</a></li>
+<!--                <li><span> 课程管理 </span>-->
+<!--                    <ul>-->
+<!--                        <li><a href="--><?//=site_url("admin/lesson/classified");?><!--">课程分类</a></li>-->
+<!--                        <li><a href="--><?//=site_url("admin/lesson/create");?><!--">新增课程</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+            </ul>
+        </li>
+        <li><span><i class="icon  fa fa-folder-open-o"></i> 其他功能</span>
+            <ul>
+                <li><a href="<?=site_url("admin/index/audit");?>">审核</a></li>
+<!--                <li><a href="--><?//=site_url("admin/lock");?><!--"> 锁屏 </a></li>-->
+<!--                <li><a href="--><?//=site_url("admin/mail");?><!--">邮件设置</a></li>-->
+<!--                <li><a href="--><?//=site_url("admin/pay");?><!--"> 支付设置</a></li>-->
+<!--                <li><a href="--><?//=site_url("admin/timeline");?><!--"> 时间轴</a></li>-->
+<!--                <li><a href="--><?//=site_url("admin/principle");?><!--"> Pricing Table</a></li>-->
+<!--                <li><a href="--><?//=site_url("admin/register");?><!--"> 用户注册</a></li>-->
+<!--                <li><a href="--><?//=site_url("admin/chat");?><!--"> 聊天工具</a></li>-->
+            </ul>
+        </li>
+        <li><span><i class="icon  fa fa-bar-chart-o"></i> 公告 </span>
+            <ul>
+                <li><a href="<?=site_url("admin/notice");?>">公告列表</a></li>
+                <li><a href="<?=site_url("admin/notice/noticePublish");?>"> 公告发布</a></li>
+            </ul>
+        </li>
+        <li><span><i class="icon  fa fa-exclamation-triangle"></i> 账号管理 </span>
+            <ul>
+                <li><a href="<?=site_url("admin/index/profile");?>">账号设置</a></li>
+                <li><a href="<?=site_url("admin/index/password");?>"> 密码修改</a></li>
+            </ul>
+        </li>
+        <li><a href="<?=site_url("admin/index/logout");?>"><i class="icon  fa fa-sitemap"></i> 登出</a></li>
+<!--        <li><a href="--><?//=site_url("admin/siteMap");?><!--"><i class="icon  fa fa-sitemap"></i>网站地图</a></li>-->
+    </ul>
+</nav>
+<!-- //nav left menu-->

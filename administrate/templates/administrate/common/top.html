@@ -1,0 +1,103 @@
+<!--
+		/////////////////////////////////////////////////////////////////////////
+		//////////     HEADER  CONTENT     ///////////////
+		//////////////////////////////////////////////////////////////////////
+		-->
+<div id="header">
+
+    <div class="logo-area clearfix">
+        <a href="#" class="logo"></a>
+    </div>
+    <!-- //logo-area-->
+
+    <div class="tools-bar">
+        <ul class="nav navbar-nav nav-main-xs">
+            <li><a href="#menu" class="icon-toolsbar"><i class="fa fa-bars"></i></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right tooltip-area">
+            <li><a href="#menu-right" data-toggle="tooltip" title="右侧菜单" data-container="body" data-placement="left"><i
+                        class="fa fa-align-right"></i></a></li>
+            <li class="hidden-xs hidden-sm"><a href="#" class="h-seperate">帮助</a></li>
+            <li>
+                <button class="btn btn-circle btn-header-search"><i class="fa fa-search"></i></button>
+            </li>
+            <li><a href="#" class="nav-collapse avatar-header">
+                    <img alt="" src="<?= RESOURCE_PATH; ?>back/img/avatar_man.png" class="circle">
+<!--                    <span class="badge">3</span>-->
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                    <em><strong>您好</strong>, <?=$_SESSION[SESSION_USER_KEY]->name;?> </em> <i class="dropdown-icon fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu pull-right icon-right arrow">
+                    <li><a href="<?= site_url("admin/index/profile"); ?>"><i class="fa fa-user"></i> 个人信息</a></li>
+                    <!--                    <li><a href="#"><i class="fa fa-cog"></i> 设置 </a></li>-->
+                    <!--                    <li><a href="#"><i class="fa fa-bookmark"></i> 标签</a></li>-->
+                    <!--                    <li><a href="#"><i class="fa fa-money"></i> Make a Deposit</a></li>-->
+                    <li class="divider"></li>
+                    <li><a href="<?= site_url("admin/index/logout"); ?>"><i class="fa fa-sign-out"></i> 登出 </a></li>
+                </ul>
+                <!-- //dropdown-menu-->
+            </li>
+            <li class="visible-lg">
+                <a href="#" class="h-seperate fullscreen" data-toggle="tooltip" title="全屏" data-container="body"
+                   data-placement="left">
+                    <i class="fa fa-expand"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- //tools-bar-->
+
+</div>
+<!-- //header-->
+
+
+<!--
+		/////////////////////////////////////////////////////////////////////////
+		//////////     TOP SEARCH CONTENT     ///////
+		//////////////////////////////////////////////////////////////////////
+		-->
+<div class="widget-top-search">
+    <span class="icon"><a href="#" class="close-header-search"><i class="fa fa-times"></i></a></span>
+
+    <form id="top-search">
+        <h2><strong>快速</strong> 搜索</h2>
+
+        <div class="input-group">
+            <input type="text" name="q" placeholder="请输入查找内容..." class="form-control"/>
+							<span class="input-group-btn">
+							<button class="btn" type="button" title="With Sound"><i class="fa fa-microphone"></i>
+                            </button>
+							<button class="btn" type="button" title="Visual Keyboard"><i class="fa fa-keyboard-o"></i>
+                            </button>
+							<button class="btn" type="button" title="Advance Search"><i class="fa fa-th"></i></button>
+							</span>
+        </div>
+    </form>
+</div>
+<!-- //widget-top-search-->
+
+
+<div style="display:none;">
+    <div data-reactid=".s">
+        <div class="modal-backdrop in" data-reactid=".s.0"></div>
+        <div tabindex="-1" role="dialog" style="display:block;" class="modal in" data-reactid=".s.1">
+            <div class="modal-dialog" data-reactid=".s.1.0">
+                <div class="modal-content" style="overflow:hidden;" data-reactid=".s.1.0.0">
+                    <div class="modal-header" data-reactid=".s.1.0.0.0">
+                        <button type="button" class="close" aria-hidden="true" data-reactid=".s.1.0.0.0.0">×</button>
+                        <h4 class="modal-title" data-reactid=".s.1.0.0.0.1">Confirm Delete</h4></div>
+                    <div class="modal-body" data-reactid=".s.1.0.0.1:0"><p data-reactid=".s.1.0.0.1:0.0">Are you sure
+                            you want to delete this permission?</p></div>
+                    <div class="modal-footer" data-reactid=".s.1.0.0.1:1">
+                        <button class="btn btn-primary btn btn-default" type="button" data-reactid=".s.1.0.0.1:1.0">No
+                        </button>
+                        <button type="button" class="btn btn-default" data-reactid=".s.1.0.0.1:1.1">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
